@@ -3,46 +3,49 @@
 #http://www.ros.org/wiki/base_local_planner
 TrajectoryPlannerROS:
   #Set the acceleration limits of the robot
-  acc_lim_th: 1.2
-  acc_lim_x: 0.6
-  acc_lim_y: 0.6
+  acc_lim_th: 2.0 # 旋转加速度
+  acc_lim_x: 1.2 # 前进加速度
+  acc_lim_y: 0  # 横移加速度(非全向没有)
 
   #Set the velocity limits of the robot
-  max_vel_x: 0.5
-  min_vel_x: 0.03
-  max_rotational_vel: 2.5
-  min_in_place_rotational_vel: 0.15
+  max_vel_x: 0.5 # 最大速度绝对值
+  min_vel_x: 0.03 # 基座允许最小速度绝对值
+  max_rotational_vel: 3.2 # 基座允许最大旋转速度绝对值
+  min_in_place_rotational_vel: 0.3 # 基座允许最小旋转速度绝对值
 
   #The velocity the robot will command when trying to escape from a stuck situation
-  escape_vel: -0.1
+  escape_vel: -0.1 # 机器人向后移动的最大逃逸速度
   
   #For this example, we'll use a holonomic robot
-  holonomic_robot: true
+  holonomic_robot: true # 完全约束机器人
 
   #Since we're using a holonomic robot, we'll set the set of y velocities it will sample
   y_vels: [-0.3, -0.1, 0.1, -0.3]
 
   #Set the tolerance on achieving a goal
-  xy_goal_tolerance: 0.1
-  yaw_goal_tolerance: 0.05
+  xy_goal_tolerance: 0.1 # x，y到达目标点的容限偏差
+  yaw_goal_tolerance: 0.05 # theta到达目标点的容限偏差
 
   #We'll configure how long and with what granularity we'll forward simulate trajectories
-  sim_time: 1.7
-  sim_granularity: 0.025
-  vx_samples: 3
-  vtheta_samples: 20
+  sim_time: 3.0  # 轨迹模拟时间
+  sim_granularity: 0.025  # 轨迹采样补偿
+  vx_samples: 5 # 前进方向速度空间采样点
+  vtheta_samples: 10  # 旋转方向速度空间采样点
+  controller_Frequency: 10 # 控制器频率
 
+  
   #Parameters for scoring trajectories
-  goal_distance_bias: 0.8
-  path_distance_bias: 0.6
-  occdist_scale: 0.01
-  heading_lookahead: 0.325
+  goal_distance_bias: 0.8 # 到达目的地的权重
+  path_distance_bias: 0.6 # 保持本轨迹目标权重
+  occdist_scale: 0.01  # 避开障碍物的权重
+  heading_lookahead: 0.325  # 获得不同轨迹时候应该向前看多远
 
   #We'll use the Dynamic Window Approach to control instead of Trajectory Rollout for this example
   dwa: true
 
   #How far the robot must travel before oscillation flags are reset
-  oscillation_reset_dist: 0.05
+  oscillation_reset_dist: 0.05  # 防止振荡最短距离
 
   #Eat up the plan as the robot moves along it
-  prune_plan: true
+  prune_plan: true  # 自动删除走过路线
+
