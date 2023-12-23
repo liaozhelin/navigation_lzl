@@ -13,6 +13,8 @@ global_costmap:
   static_map: true
   rolling_window: false
 
-  footprint_padding: 0.02
+  footprint_padding: 0.01
 
   transform_tolerance: 1
+
+  robot_radius: 0.25

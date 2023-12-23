@@ -2,8 +2,8 @@
 #parameters available for DWAPlannerROS, please see
 #http://www.ros.org/wiki/dwa_local_planner
 DWAPlannerROS:
-  acc_lim_th: 2.0  # 机器人旋转加速度限制
-  acc_lim_x: 1.2   # 机器人X加速度限制
+  acc_lim_th: 1.0  # 机器人旋转加速度限制
+  acc_lim_x: 0.4   # 机器人X加速度限制
   acc_lim_y: 0.0  
 
   max_vel_x: 0.50  # 最大线速度
@@ -21,21 +21,21 @@ DWAPlannerROS:
   sim_time: 4.0  # 仿真模拟时间 
   sim_granularity: 0.025  # 给定轨迹采样布长
 
-  goal_distance_bias: 35.0  # 局部控制器达到本地目标的权重
-  path_distance_bias: 10.0  # 局部控制器紧贴原有路径权重
+  goal_distance_bias: 45.0  # 局部控制器达到本地目标的权重
+  path_distance_bias: 27.0  # 局部控制器紧贴原有路径权重
   occdist_scale: 0.02  # 局部控制器避开障碍物的权重
 
   stop_time_buffer: 0.2  # 在碰撞前必须停止的时间
   oscillation_reset_dist: 0.05  # 防止振荡必须运动的距离
 
-  forward_point_distance: 0.325  # 以机器人为中心，附加得分点的距离
+  forward_point_distance: 0.3  # 以机器人为中心，附加得分点的距离
 
   scaling_speed: 0.25 # 机器人速度缩放绝对值
   max_scaling_factor: 0.2 # 机器人占地面最大缩放系数
 
   vx_samples: 10
   vy_samples: 3
-  vtheta_samples: 20
+  vtheta_samples: 15
 
   sim_period: 0.1
 

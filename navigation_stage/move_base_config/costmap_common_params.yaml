@@ -7,8 +7,8 @@ map_type: voxel
 origin_z: 0.0
 z_resolution: 0.2
 z_voxels: 10
-unknown_threshold: 9
-mark_threshold: 0
+unknown_threshold: 9  # 在无地图环境下，是否继续前进的阈值（未知环境的占比）越小越谨慎
+mark_threshold: 0  
 
 #Set the tolerance we're willing to have for tf transforms
 transform_tolerance: 1.0  # tf时间误差
@@ -19,12 +19,12 @@ max_obstacle_height: 2.0
 raytrace_range: 3.0  # 从Scan中追踪障碍物的最大范围
 
 #The footprint of the robot and associated padding
-footprint: [[-0.15, -0.15], [-0.15, 0.15], [0.15, 0.15], [0.15, -0.15]]
+footprint: [[-0.13, -0.13], [-0.13, 0.13], [0.13, 0.13], [0.13, -0.13]]
 footprint_padding: 0.01
 
 #Cost function parameters
-inflation_radius: 3  # 膨胀参数
-cost_scaling_factor: 4.0  # 衰减参数，越大越陡峭
+inflation_radius: 7.0  # 膨胀参数
+cost_scaling_factor: 3.0  # 衰减参数，越大越陡峭
 
 #The cost at which a cell is considered an obstacle when a map is read from the map_server
 lethal_cost_threshold: 100  # 默认障碍物的Cost数值
